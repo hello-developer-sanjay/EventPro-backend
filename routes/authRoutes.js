@@ -32,7 +32,7 @@ router.get('/google/callback', (req, res, next) => {
     const token = req.user.token; // Retrieve token from authenticated user
 
     // Redirect to dashboard with user details and token in URL
-    res.redirect(`http://localhost:5173/dashboard?user=${encodeURIComponent(JSON.stringify(req.user))}&token=${token}`);
+    res.redirect(`https://event-manager-two.vercel.app/dashboard?user=${encodeURIComponent(JSON.stringify(req.user))}&token=${token}`);
 });
 // Forgot password
 router.post('/forgot-password', [
