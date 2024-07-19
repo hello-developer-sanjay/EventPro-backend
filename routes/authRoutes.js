@@ -29,7 +29,7 @@ router.get('/google/callback', (req, res, next) => {
 }, passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
     console.log('Google authentication successful, redirecting to dashboard');
 
-    const token = req.user.token; // Retrieve token from authenticated user
+    const token = req.user.token; 
 
     // Redirect to dashboard with user details and token in URL
     res.redirect(`https://event-manager-two.vercel.app/dashboard?user=${encodeURIComponent(JSON.stringify(req.user))}&token=${token}`);
