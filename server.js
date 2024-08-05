@@ -5,6 +5,7 @@ const eventRoutes = require('./routes/events');
 const authMiddleware = require('./middleware/authMiddleware');
 const cors = require('cors');  
 const passport = require('passport');
+    const session = require('express-session');
 
 const app = express();
 
@@ -16,7 +17,9 @@ app.use(express.json({ extended: false }));
 
 // Enable CORS
 app.use(cors());  // Use the cors middleware
-app.use(passport.initialize()); // Initialize passport
+ app.use(passport.initialize());
+        app.use(passport.session());
+        console.log('Passport middleware initialized');
 require('./config/passport'); // Include passport configuration
 
 // Define Routes
