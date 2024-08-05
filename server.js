@@ -14,7 +14,11 @@ connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
-
+  app.use(session({
+            secret: 'fRwD8ZcX#k5H*J!yN&2G@pQbS9v6E$tA', 
+            resave: false,
+            saveUninitialized: true,
+        }));
 // Enable CORS
 app.use(cors());  
  app.use(passport.initialize());
