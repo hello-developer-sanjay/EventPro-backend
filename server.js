@@ -16,7 +16,7 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 // Enable CORS
-app.use(cors());  // Use the cors middleware
+app.use(cors());  
  app.use(passport.initialize());
         app.use(passport.session());
         console.log('Passport middleware initialized');
