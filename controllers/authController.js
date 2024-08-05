@@ -165,7 +165,7 @@ const forgotPassword = async (req, res) => {
             from: 'workrework.sanjay@gmail.com',
             to: email,
             subject: 'Reset Password',
-            text: `You are receiving this email because you (or someone else) have requested to reset the password for your account. Please click on the following link to reset your password: ${process.env.CLIENT_URL}/reset-password/${token}`
+            text: `You are receiving this email because you (or someone else) have requested to reset the password for your account. Please click on the following link to reset your password: https://eventpro.vercel.app/reset-password/${token}`
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
