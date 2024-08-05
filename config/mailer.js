@@ -24,11 +24,11 @@ const sendWelcomeEmail = (user, req) => {
     const mailOptions = {
         from: process.env.EMAIL_ADDRESS,
         to: user.email,
-        subject: 'Welcome to HogwartsEdx!',
+        subject: 'Welcome to EventPro! Your Ultimate Event Management Partner Awaits!',
         html: `
             <div style="font-family: Arial, sans-serif; line-height: 1.6;">
                 <div style="background-color: #f5f5f5; padding: 20px;">
-                    <h2 style="color: #4b0082;">Welcome to HogwartsEdx, ${user.name}!</h2>
+                    <h2 style="color: #4b0082;">Welcome to EventPro, ${user.name}!</h2>
                 </div>
                 <div style="padding: 20px;">
                     <p>Thank you for signing in with Google. We are excited to have you join us!</p>
@@ -41,8 +41,8 @@ const sendWelcomeEmail = (user, req) => {
                         <li><strong>Device:</strong> ${device}</li>
                     </ul>
                     <p>If you believe that this sign-in is suspicious, please reset your password immediately by clicking the button below:</p>
-                    <a href="https://hogwartsedx.vercel.app/forgot-password" style="display: inline-block; padding: 10px 20px; color: white; background-color: #4b0082; text-decoration: none; border-radius: 5px;">Reset Password</a>
-                    <p style="margin-top: 20px;">Best regards,<br>The HogwartsEdx Team</p>
+                    <a href="https://eventpro.vercel.app/forgot-password" style="display: inline-block; padding: 10px 20px; color: white; background-color: #4b0082; text-decoration: none; border-radius: 5px;">Reset Password</a>
+                    <p style="margin-top: 20px;">Best regards,<br>The EventPro Team</p>
                 </div>
             </div>
         `
