@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -15,8 +15,8 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    default: 'user',
-    enum: ['user', 'admin'],
+    default: "user",
+    enum: ["user", "admin"],
   },
   googleId: {
     type: String,
@@ -31,11 +31,9 @@ const userSchema = new mongoose.Schema({
   },
   platform: {
     type: String,
-    enum: ['eventpro', 'eventease'],
-    default: 'eventpro',
+    enum: ["eventpro", "eventease"],
+    required: true,
   },
-  googleAccessToken: String,
-  googleRefreshToken: String,
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
