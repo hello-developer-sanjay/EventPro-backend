@@ -31,7 +31,7 @@ router.get('/google/callback', (req, res, next) => {
 
     const token = req.user.token; 
 
-    res.redirect(`https://eventpro.vercel.app/dashboard?user=${encodeURIComponent(JSON.stringify(req.user))}&token=${token}`);
+    res.redirect(`https://event-ease-unified-event-manager.vercel.app/eventpro?user=${encodeURIComponent(JSON.stringify(req.user))}&token=${token}`);
 });
 // Forgot password
 router.post('/forgot-password', [
