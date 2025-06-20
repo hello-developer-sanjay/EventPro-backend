@@ -10,7 +10,7 @@ router.get('/google/callback', passport.authenticate('google', { session: false 
   try {
     const user = req.user;
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.redirect(`event-ease-unified-event-manager.vercel.app/eventpro?platform=eventpro&user=${encodeURIComponent(JSON.stringify({ ...user._doc, token }))}`);
+    res.redirect(`https://event-ease-unified-event-manager.vercel.app/eventpro?platform=eventpro&user=${encodeURIComponent(JSON.stringify({ ...user._doc, token }))}`);
   } catch (error) {
     console.error('Google auth callback error:', error);
     res.status(500).send('Authentication failed');
