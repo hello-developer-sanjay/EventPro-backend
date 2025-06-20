@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: "https://event-ease-unified-event-manager.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "x-auth-token"],
+    allowedHeaders: ["Content-Type", "x-auth-token", 'Authorization'],
     credentials: true,
   })
 );
