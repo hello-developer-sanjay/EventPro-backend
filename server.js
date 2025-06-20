@@ -28,7 +28,7 @@ require('./config/passport'); // Include passport configuration
 
 // Define Routes
 app.use('/api/auth', authRoutes); // Authentication routes
-app.use('/api/events', authMiddleware, eventRoutes); // Event CRUD routes, protected by authMiddleware
+app.use('/api/eventpro/events', eventRoutes);
 
 // Define a basic route
 app.get('/', (req, res) => res.send('API Running'));
