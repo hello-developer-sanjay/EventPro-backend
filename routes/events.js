@@ -86,7 +86,7 @@ router.get("/:id", auth, async (req, res) => {
     }
 
     console.log("Event fetched successfully:", event);
-    res.json(event);
+    res.json({ event });
   } catch (err) {
     console.error("Error fetching event:", err.message);
     res.status(500).send("Server Error");
@@ -95,6 +95,7 @@ router.get("/:id", auth, async (req, res) => {
 
 router.put("/:id", auth, async (req, res) => {
   console.log("PUT /api/events/:id - Request received with ID:", req.params.id);
+  console.log("PUT /api/events/:id - Request body:", req.body);
 
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     console.log("Invalid event ID");
@@ -127,10 +128,14 @@ router.put("/:id", auth, async (req, res) => {
       return res.status(401).json({ msg: "User not authorized" });
     }
 
-    event = await Event.findByIdAndUpdate(req.params.id, { $set: eventFields }, { new: true });
+    event = await Event.findByIdAndUpdate(
+      req.params.id,
+      { $set: eventFields },
+      { new: true }
+    ).lean(); // Use lean() for plain JS object
 
     console.log("Event updated successfully:", event);
-    res.json(event);
+    res.json({ event: { _id: req.params.id, ...event } }); // Explicitly include _id
   } catch (err) {
     console.error("Error updating event:", err.message);
     res.status(500).send("Server Error");
